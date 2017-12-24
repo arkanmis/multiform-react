@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Intro from './intro.js'
+import Quiz from './quiz.js'
 
 ReactDOM.render(
-    <Intro />,
+    <Quiz />,
     document.getElementById('root')
 );
