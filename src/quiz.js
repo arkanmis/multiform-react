@@ -10,26 +10,40 @@ class Quiz extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            step:1
+            step: 1
         }
     }
+
+    nextStep () {
+        this.setState({
+            step: this.state.step + 1
+        })
+    }
+
+    previousStep () {
+        this.setState({
+            step: this.state.step - 1
+        })
+    }
+
 
     render() {
         var fieldValues = {
             name: null,
             email: null,
-            password:null,
-            age:null,
-            colors:[]
+            password: null,
+            age: null,
+            colors: []
         }
         switch (this.state.step) {
             case 1:
-                return <Intro />
+                return <Intro nextStep={this.nextStep} />
             case 2:
-                return <Question />
+                return <Question nextStep={this.nextStep} previousStep={this.previousStep} />
             case 3:
-                return <Finish />
-        };
+                return <Finish previousStep={this.previousStep} />
+        }
+        ;
 
     }
 }
